@@ -22,7 +22,7 @@ default_shade_color red
 default_outline_color green
 alignment top_left
 gap_x 100
-gap_y 500
+gap_y 600
 no_buffers yes
 uppercase no
 cpu_avg_samples 1
@@ -33,4 +33,4 @@ use_spacer none
 
 TEXT
 ${voffset 10}${color EAEAEA}${font Microsoft JhengHei:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color FFA300}${font Microsoft JhengHei:pixelsize=38}${time %d} ${voffset -15}${color EAEAEA}${font Microsoft JhengHei:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 24}${font Microsoft JhengHei:pixelsize=58}${offset -125}${time %A}${font}
-${voffset 5}${offset 10}${font Microsoft JhengHei:pixelsize=10}${color FFA300}HD ${offset 6}$color${fs_free /} / ${fs_size /}${offset 25}${color FFA300}RAM ${offset 6}$color$mem / $memmax${offset 25}${color FFA300}CPU ${offset 6}$color${cpu cpu0}% ${offset 25}${color FFA300}NET ${offset 6}$color↓${downspeed wlan0} | $color↑${upspeed wlan0}
+${voffset 5}${offset 10}${font Microsoft JhengHei:pixelsize=10}${color FFA300}CPU ${offset 6}$color${cpu cpu0}% | ${cpu cpu1}%${offset 15}${color FFA300}RAM ${offset 6}$color$mem / $memmax${offset 15}${color FFA300}Temp ${offset 6}$color${execpi 5 sensors | grep "Core 0" | awk '{print $3}' | cut -c2-3}°C | ${execpi 5 sensors | grep "Core 1" | awk '{print $3}' | cut -c2-3}°C${offset 15}${color FFA300}NET ${offset 6}$color↓${downspeed wlan0} | ↑${upspeed wlan0}
